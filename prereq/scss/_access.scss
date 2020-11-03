@@ -1,0 +1,64 @@
+.access{
+    background-color: $Lbrown;
+    padding-bottom:70px;
+}
+
+
+
+.access_wrap {
+    padding-bottom:0;//打ち消し
+    .title{
+    margin-bottom:0;//打ち消し
+    }
+}
+
+.address{
+    background-color: $Dbrown;
+    display:flex;
+     @include tab{
+        flex-direction: column-reverse;
+        margin-top:50px;
+    }
+    &_info{
+        width:40%;
+        @include tab{
+            width:95%;
+            margin:0 auto;
+        }
+        &_in{
+            width:60%;
+            margin:0 auto;
+            margin-top:101px;
+            margin-bottom:103px;
+            @include tab{
+                width:100%;
+                margin-top:30px;
+                margin-bottom:60px;
+            }
+            h3{
+                margin-bottom:30px;
+                color:#00000038;
+                font-size: 24px;
+                font-weight: bold;
+            }
+            p{
+                margin-top:24px;
+                color:#fff;
+            }
+        }
+    }
+    &_map{
+        width:60%;
+        @include tab{
+            width:100%;
+            height:400px;
+        }
+        @include sp{
+            height:271px;
+        }
+        .map{
+            width:100%;
+            height:100%;
+        }
+    }
+}

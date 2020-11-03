@@ -1,0 +1,81 @@
+//変数
+
+$Lbrown:#A193861F;
+$Dbrown:#A1938689;
+$Lblack:#707070;
+$ctcopy:"ヒラギノ明朝 Pro","W3";
+
+@mixin pc{
+    @media screen and (min-width:1150px){
+        @content;
+    }
+}
+
+@mixin tab{
+    @media screen and (max-width:1149px){
+        @content;
+    }
+}
+
+@mixin sp{
+    @media screen and (max-width:600px){
+        @content;
+    }
+}
+
+//共通
+
+html{
+    font-size:62.5%;  //10px
+}
+
+body{
+    font-size:16px;
+    line-height:1.67;
+    font-family: Roboto Mono for Powerline ;
+    width:100%;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+.wrap{
+    width:84%;
+    margin:0 auto;
+    padding-top:256px;
+    padding-bottom:70px;
+    @include sp{
+        width:90%;
+        padding-top:60px;
+    }
+}
+
+.title{
+    color:$Dbrown;
+    display:flex;
+    align-items:center;
+    margin-bottom:11px;
+    &:after{
+        display: inline-block;
+        content:"";
+        width:9.9rem;
+        height:1px;
+        border:1px solid;
+        line-height:1px;
+        margin-left:22.5px;
+    }
+}
+
+.btn{
+    color:$Lblack;
+    font-size:1.8rem;
+    padding:10px 41px;
+    border:1px solid $Lblack;
+    letter-spacing: 1.8px;
+}
+
+
+
+

@@ -1,0 +1,45 @@
+.footer_wrap{
+    padding-top:164px;
+    @include sp{
+        padding-top:63px;
+        padding-bottom:19px;
+    }
+}
+
+.footer_f{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top:80px;
+    border-top:1px solid $Lbrown;
+    @include sp{
+        flex-direction: column-reverse;
+        padding-top:60px;
+    }
+    &_salon{
+        display:flex;
+        align-items:center;
+        @include sp{
+            justify-content: space-between;
+            width:100%;
+            margin-top:62px;
+        }
+        p{
+            font-size: 3.2rem;
+            margin-right:26px;
+            letter-spacing: 3.2px;
+            color:#7070704D;
+            @include sp{
+                font-size: 1.8rem;
+            }
+            }
+
+        .sns{
+            span{
+                &:first-of-type{
+                    margin-right:9px;
+                }
+            }
+        }
+    }
+}

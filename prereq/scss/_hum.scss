@@ -1,0 +1,120 @@
+
+
+.hd_wrap{
+    @include tab{
+        position: relative;
+    }
+}
+
+.sp_nav{
+    @include tab{
+        display:block;
+        position:fixed;
+        right:-320px;
+        top:0;
+        width:300px;
+        height:100vh;
+        padding-top:40px;
+        background-color: #ffffff;
+        transition: all .6s;
+        z-index: 200;
+        overflow: auto;
+    }
+    &_ul{
+        @include tab{
+            padding:20px;
+        }
+    }
+    &_li{
+        @include tab{
+            padding-top:20px;
+        }
+    }
+}
+
+.sp_nav_li a:hover{
+    @include tab{
+        color:$Dbrown;
+    }
+}
+
+.hum{
+    @include tab{
+        position: absolute;
+        right:0;
+        top:50%;
+        transform:translate(-50%, -50%);
+        width:40px;
+        height:40px;
+        cursor: pointer;
+        z-index: 300;
+    }
+    &-line{
+        @include tab{
+            position: absolute;
+            left:50%;
+            top:50%;
+            transform:translate(-50%, -50%);
+            width:18px;
+            height:1px;
+            background-color: #111111;
+            transition: all .6s;
+        }
+        &-1{
+            top:14px;
+        }
+        &-2{
+            top:20px;
+        }
+        &-3{
+            top:26px;
+            width:9px;
+            left:16px;
+        }
+    }
+}
+
+
+.black-bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  background-color: #000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .6s;
+  cursor: pointer;
+}
+
+
+.nav-open .sp_nav{
+    right:0;
+}
+
+.nav-open .black-bg{
+    opacity: .8;
+    visibility: visible;
+}
+
+.nav-open .hum-line-1{
+    transform:rotate(45deg);
+    top:20px;
+}
+
+.nav-open .hum-line-2{
+    width:0;
+    left:50%;
+}
+
+.nav-open .hum-line-3{
+    transform:rotate(-45deg);
+    top:20px;
+    left:50%;
+    width:18px;
+}
+
+
+
