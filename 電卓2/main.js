@@ -17,20 +17,20 @@ function clearr() {
 document.onkeydown = function (e) {
     var keyCode = false;
 
-    if (e) event = e;
+    if (e) ev = e;
 
-    if (event) {
-        if (event.keyCode) {
-            keyCode = event.keyCode;
-        } else if (event.which) {
-            keyCode = event.which;
+    if (ev) {
+        if (ev.keyCode) {
+            keyCode = ev.keyCode;
+        } else if (ev.which) {
+            keyCode = ev.which;
         }
     }
 
     if (keyCode === 13) {
         var obj = document.getElementById("result");  //resultを取得
-        var objV = obj.value;
+        const elem = document.activeElement;  // 現在forcsしているものを取得
+        elem.blur(); //現在forcsしているものを解除
         obj.value = eval(obj.value);  //どの文字列もプログラムできるようにする
-        obj.value.slice(-1);
     }
 }
