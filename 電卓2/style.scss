@@ -1,0 +1,49 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    background-color:#c11805;
+    color:#fff;
+}
+
+body{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:70vh;
+}
+
+
+
+.wrap{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input_field{
+    width:300px;
+    height:50px;
+    font-size: 30px;
+}
+
+.buttons{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
+    input{
+        width:24%;
+        height:50px;
+    }
+}
+
+
+textbox{
+    width:200px;
+    height:50px;
+}
