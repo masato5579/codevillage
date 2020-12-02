@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section id="section">
+        <div class="fun">
+            <p>プログラミングは楽しいですか？</p>
+            <input type="radio" name="yes" value="yes" id="yes">はい
+            <input type="radio" name="no" value="no" id="no">いいえ
+        </div>
+
+        <div class="likes">
+            <p>好きな鬼滅キャラ</p>
+            <select name="kimetu" id="onigari" onchange="kimetu()">
+                <option value="tanzirou" id="tanzirou">竈門炭治郎</option>
+                <option value="zenitu" id="zenitu">我妻善逸</option>
+                <option value="inosuke" id="inosuke">嘴平伊之助</option>
+            </select>
+        </div>
+    </section>
+
+
+    <script src="main.js">
+    </script>
+</body>
+
+</html>
