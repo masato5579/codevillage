@@ -6,20 +6,20 @@ const Form = ({ addTodo }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (form1.value === '') {
-            alert('中身がからです')
+        if (!value) {
+            alert('中身が空です')
         } else {
             addTodo(value)
             form1.value = ''
+            setValue('')
         }
-
     }
 
     return (
         <form onSubmit={handleSubmit}>
             <input type='text' onChange={e => {
                 setValue(e.target.value)
-            }} id="form1" />
+            }} id="form1" autocomplete="off" />
         </form>
     )
 }

@@ -5,10 +5,10 @@ const List = ({ todos, deleteTodo, isDone, setIsDone }) => {
     return (
         <ul>
             {
-                todos.map(todo => {
+                todos.map((todo) => {
                     return (
                         <Item content={todo.content} todos={todos.id} deleteTodo={deleteTodo}
-                            id={todo.id} key={todo.id} isDone={isDone} setIsDone={setIsDone} />
+                            id={todo.id} isDone={isDone} setIsDone={setIsDone} />
                     )
                 })
             }

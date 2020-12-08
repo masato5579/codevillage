@@ -3,7 +3,6 @@ import Form from './Form'
 import List from './List'
 import shortid from 'shortid'
 
-
 const App = () => {
     const [todos, setTodos] = React.useState([
 
@@ -21,16 +20,17 @@ const App = () => {
         )
     }
 
-    const [isDone, setIsDone] = React.useState(false)
 
     const deleteTodo = id => {
         setTodos(todos.filter(todo => todo.id !== id))
     }
 
+    const [isDone, setIsDone] = React.useState(false)
+
     return (
         <>
-            <h1>TodoApp</h1>
-            <Form addTodo={addTodo} todos={todos} />
+            <h1 className='title'>全集中のタスク</h1>
+            <Form addTodo={addTodo} />
             <List todos={todos} deleteTodo={deleteTodo} isDone={isDone} setIsDone={setIsDone} />
         </>
     )

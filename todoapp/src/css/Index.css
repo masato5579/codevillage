@@ -1,0 +1,50 @@
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/kimetu.jpg);
+}
+
+#root{
+    background-color: #fff;
+    width:500px;
+    text-align: center;
+    
+}
+
+.Approot{
+    font-size:20px;
+}
+
+.title{
+    color:blue;
+    
+}
+
+.list{
+    width:80%;
+    margin:0 auto;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    font-size:40px;
+    align-items: center;
+}
+
+
+
+
+
+.list input[type=checkbox]{
+  transform: scale(2.5);
+  margin-right: 20px;
+}
+
+
+
+
+
+.dele{
+    color:red;
+}
+
