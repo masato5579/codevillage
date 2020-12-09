@@ -1,5 +1,8 @@
+import React, { useState } from 'react'
 
-const Item = ({ content, deleteTodo, id, isDone, setIsDone }) => {
+const Item = ({ content, deleteTodo, id }) => {
+
+    const [isDone, setIsDone] = useState(false)
 
     const handleDelete = () => {
         deleteTodo(id)

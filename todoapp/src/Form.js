@@ -7,7 +7,7 @@ const Form = ({ addTodo }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if (!value) {
-            alert('中身が空です')
+            alert('全集中の呼吸ができていません。')
         } else {
             addTodo(value)
             form1.value = ''
@@ -16,10 +16,10 @@ const Form = ({ addTodo }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form">
             <input type='text' onChange={e => {
                 setValue(e.target.value)
-            }} id="form1" autocomplete="off" />
+            }} id="form1" autoComplete="off" />
         </form>
     )
 }
