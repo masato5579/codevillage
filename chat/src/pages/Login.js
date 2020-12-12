@@ -1,0 +1,52 @@
+import React, { useState } from 'react'
+import firebase from '../config/firebase'
+
+const Login = () => {
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        firebase.auth().signInWithEmailAndPassword(email, password)
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
+    return (
+        <>
+            <h1>Login</h1>
+            <form onSubmit={handleSubmit}>
+                <div>
+                    <lable htmlFor="email">E-mail</lable>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        pleceholder="Email"
+                        onChange={e => {
+                            setEmail(e.target.value)
+                        }}
+                    />
+                </div>
+                <div>
+                    <lable htmlFor="password">Password</lable>
+                    <input
+                        type="password"
+                        id="password"
+                        name="email"
+                        pleceholder="password"
+                        onChange={e => {
+                            setPassword(e.target.value)
+                        }}
+                    />
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </>
+    )
+}
+
+
+export default Login
