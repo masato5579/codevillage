@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { AuthContext } from '../AuthService'
+import { Redirect } from 'react-router-dom'
 import firebase from '../config/firebase'
 
-const Login = () => {
+const Login = ({ history }) => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -9,16 +11,25 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         firebase.auth().signInWithEmailAndPassword(email, password)
+            .then(() => {
+                history.push('/')
+            })
             .catch(err => {
                 console.log(err)
             })
+    }
+
+    const user = useContext(AuthContext)
+
+    if (user) {
+        return <Redirect to={"/"} />
     }
 
     return (
         <>
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
-                <div>
+                <>
                     <lable htmlFor="email">E-mail</lable>
                     <input
                         type="email"
@@ -29,8 +40,8 @@ const Login = () => {
                             setEmail(e.target.value)
                         }}
                     />
-                </div>
-                <div>
+                </>
+                <>
                     <lable htmlFor="password">Password</lable>
                     <input
                         type="password"
@@ -41,7 +52,7 @@ const Login = () => {
                             setPassword(e.target.value)
                         }}
                     />
-                </div>
+                </>
                 <button type="submit">Login</button>
             </form>
         </>

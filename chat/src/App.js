@@ -7,11 +7,13 @@ import Room from './pages/Room'
 import AuthProvider from './AuthService'
 
 
+
 import {
     BrowserRouter as Router,
     Switch,
     Route
 } from 'react-router-dom'
+import LoggedInRoute from './LoggedInRoute'
 
 
 
@@ -20,7 +22,7 @@ const App = () => {
         <AuthProvider>
             <Router>
                 <Switch>
-                    <Route exact path="/" component={Room} />
+                    <LoggedInRoute exact path="/" component={Room} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/signup" component={SignUp} />
                 </Switch>
