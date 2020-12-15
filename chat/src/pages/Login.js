@@ -29,8 +29,8 @@ const Login = ({ history }) => {
         <>
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
-                <>
-                    <lable htmlFor="email">E-mail</lable>
+                <div>
+                    <label htmlFor="email">E-mail</label>
                     <input
                         type="email"
                         id="email"
@@ -40,9 +40,9 @@ const Login = ({ history }) => {
                             setEmail(e.target.value)
                         }}
                     />
-                </>
-                <>
-                    <lable htmlFor="password">Password</lable>
+                </div>
+                <div>
+                    <label htmlFor="password">Password</label>
                     <input
                         type="password"
                         id="password"
@@ -52,7 +52,7 @@ const Login = ({ history }) => {
                             setPassword(e.target.value)
                         }}
                     />
-                </>
+                </div>
                 <button type="submit">Login</button>
             </form>
         </>

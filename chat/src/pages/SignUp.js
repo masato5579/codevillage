@@ -25,20 +25,20 @@ const SignUp = () => {
             <form onSubmit={handleSubmit}>
 
                 <div>
-                    <lable htmlFor="name">Name
-                    </lable>
+                    <label htmlFor="name">Name
+                    </label>
                     <input name="name" type="name" id="name" placeholder="name"
                         onChange={e => { setName(e.target.value) }}></input>
                 </div>
 
-                <div><lable htmlFor="email">E-mail
-                </lable>
+                <div><label htmlFor="email">E-mail
+                </label>
                     <input name="email" type="email" id="email" placeholder="Email"
                         onChange={e => { setEmail(e.target.value) }} />
                 </div>
 
-                <div><lable htmlFor="password">Password
-                </lable>
+                <div><label htmlFor="password">Password
+                </label>
                     <input name="password" type="password" id="password" placeholder="Password"
                         onChange={e => { setPassword(e.target.value) }} />
                 </div>

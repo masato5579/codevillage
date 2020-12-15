@@ -11,8 +11,8 @@ const Form = ({ addTodo }) => {
         } else {
             addTodo(value)
             form1.value = ''
-            setValue('')
         }
+        setValue('')
     }
 
     return (

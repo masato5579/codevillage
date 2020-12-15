@@ -1,22 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-const Item = ({ content, deleteTodo, id }) => {
-
-    const [isDone, setIsDone] = useState(false)
-
-    const handleDelete = () => {
-        deleteTodo(id)
-    }
-
-
-
+const Item = ({ deletedTodos, changeIsDone, todo }) => {
     return (
         <li className="list">
             <input type="checkbox" onChange={() => {
-                setIsDone(!isDone)
+                changeIsDone(todo.id)
             }} />
-            <span style={{ textDecoration: isDone ? 'line-through' : 'none' }}>{content}</span>
-            <button onClick={handleDelete} className="dele">削除</button>
+            <span style={{ textDecoration: todo.isDone ? 'line-through' : 'none' }}>{todo.content}</span>
+            <button onClick={() => { deletedTodos(todo.id) }} className="dele">削除</button>
         </li>
     )
 }

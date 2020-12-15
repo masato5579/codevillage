@@ -8,29 +8,54 @@ const App = () => {
 
     ])
 
+
+    const changeIsDone = (id) => {
+        setTodos(
+            todos.map((todo) => {
+                if (todo.id === id) {
+                    return {
+                        ...todo,
+                        isDone: !todo.isDone,
+                    }
+                } else {
+                    return todo
+                }
+            })
+        )
+    }
+
     const addTodo = content => {
         setTodos(
             [
                 ...todos,
                 {
                     content: content,
-                    id: shortid.generate()
+                    id: shortid.generate(),
+                    isDone: false
                 }
             ]
         )
     }
 
+    // const deletetodo = id => {
+    //     const deletedTodos = todos.filter((todo) => {
+    //         return todo.id !== id;
+    //     });
 
-    const deleteTodo = id => {
-        setTodos(todos.filter(todo => todo.id !== id))
+    //     setTodos(deletedTodos)
+    // }
+
+    const deletedTodos = id => {
+        setTodos(todos.filter((todo) => todo.id !== id));
     }
+
 
 
     return (
         <>
             <h1 className='title'>全集中のタスク</h1>
             <Form addTodo={addTodo} />
-            <List todos={todos} deleteTodo={deleteTodo} />
+            <List todos={todos} deletedTodos={deletedTodos} changeIsDone={changeIsDone} />
         </>
     )
 }
