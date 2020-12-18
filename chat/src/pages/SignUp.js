@@ -1,22 +1,31 @@
-import React, { useState } from 'react'
-import firebase from '../config/firebase'
+import React, { useState } from 'react' //Reactを読み込む
+import firebase from '../config/firebase' //firebaseを読み込み
 
-const SignUp = () => {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [name, setName] = useState('')
+const SignUp = ({ history }) => {
+    const [email, setEmail] = useState('') //emailのuseStateを設定
+    const [password, setPassword] = useState('') //emailのuseStateを設定
+    const [name, setName] = useState('') //nameのuseStateを設定
 
     const handleSubmit = (e) => {
+        //引数eでhandleSubmitを定義
         e.preventDefault()
+        //ブラウザの挙動をキャンセル
         firebase.auth().createUserWithEmailAndPassword(email, password)
+            // stateで管理しているemailとpasswordを引数に与えている
+            //createだから作成しているuserのemailとpassword
             .then(({ user }) => {
                 user.updateProfile({
                     displayName: name
+                    //表示されるnameはuseStateにあるname
                 })
+                history.push('/')
             })
+            //.thenはPromiseを返す
+            //Promiseは非同期処理の最終的な完了処理 (もしくは失敗) およびその結果の値を表現
             .catch(err => {
                 console.log(err)
             })
+        //拒絶された場合のみコンソールにerrを表示する
     }
 
     return (

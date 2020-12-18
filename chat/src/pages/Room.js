@@ -9,22 +9,31 @@ const Room = () => {
 
     useEffect(() => {
         firebase.firestore().collection('messages')
+            // firebase.firestore()でfirestoreにアクセス
+            //collectionでデータを取得
             .onSnapshot((snapshot) => {
+                // 対象のコレクション(今回はmessages)に変更があるたびに発生するため、
+                // リアルタイムでアプリケーションにデータを反映
                 const messages = snapshot.docs.map(doc => {
                     return doc.data()
+                    //snapshotの全ての要素のdataをmessagesに返している
                 })
                 setMessage(messages)
+                //messagesを更新
             })
     }, [])
 
     //onSnapshot クライアントとDBとのリアルタイムな同期を簡単に実装
 
     const user = useContext(AuthContext)
+    //現在ログインしているユーザー情報を取得
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
         firebase.firestore().collection('messages').add({
             content: value,
-            user: user.displayName
+            user: user.displayName,
+            date: new Date()
         })
     }
 
@@ -33,11 +42,10 @@ const Room = () => {
         <>
             <h1>Room</h1>
             <ul>
-                <li>sample user : sample message</li>
                 {
                     messages ?
-                        messages.map((message, index) => (
-                            <li key={index}>{message.user}:{message.content}</li>
+                        messages.map((message) => (
+                            <li>{message.user}:{message.content}</li>
                         )) :
                         <p>...loading</p>
                 }
@@ -51,6 +59,7 @@ const Room = () => {
                 <button type="submit">送信</button>
             </form>
             <button onClick={() => firebase.auth().signOut()}>Logout</button>
+            {/* signoutをするメソッド */}
         </>
     )
 }

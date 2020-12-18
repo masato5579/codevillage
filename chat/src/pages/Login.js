@@ -1,19 +1,30 @@
-import React, { useState, useContext } from 'react'
-import { AuthContext } from '../AuthService'
-import { Redirect } from 'react-router-dom'
-import firebase from '../config/firebase'
+import React, { useState, useContext } from 'react'  //reactを読み込む
+import { AuthContext } from '../AuthService' //AuthService
+import { Redirect } from 'react-router-dom' //react-router-domを利用してRedirectを読み込む
+import firebase from '../config/firebase' //firebaseを読み込む
 
 const Login = ({ history }) => {
+    //{history}を引数にLoginを定義
 
     const [email, setEmail] = useState('')
+    //emailのuseState
     const [password, setPassword] = useState('')
+    //passwordのuseState
 
     const handleSubmit = (e) => {
+        //eを引数にhandleSubmitを定義
         e.preventDefault()
+        //ブラウザのリロード時の挙動をなくす
         firebase.auth().signInWithEmailAndPassword(email, password)
+            //既存のuserをログインとパスワードを使用してLoginさせる
+
+            //非同期通信が成功したら
             .then(() => {
                 history.push('/')
+                // [/] = Room.js
             })
+
+            //非同期通信が失敗したら
             .catch(err => {
                 console.log(err)
             })
@@ -21,8 +32,10 @@ const Login = ({ history }) => {
 
     const user = useContext(AuthContext)
 
+
     if (user) {
         return <Redirect to={"/"} />
+        //もしuserだったら、[/]にリダイレクトする（自動的に）
     }
 
     return (
